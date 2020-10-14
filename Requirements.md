@@ -20,6 +20,7 @@ ___________
 * **[ReqID:005]** If <temperature>/<humidity>/<soilmoisture_value> is more than <temperature_target_max_val>/<humidity_target_max_val>/<soilmoisture_target_max_val> respectively the <fan_state> shall be ON, otherwise the <fan_state> shall be OFF
 * **[ReqID:006]** It shall be possible to send <fan_status> signal to the CAN bus every <write_interval>.
 
+
 ## Heater                                                                                                     
 ___________
 
@@ -42,6 +43,11 @@ ___________
 ________
 
 * **[ReqID:001]** It shall be possible to initialize the <lamp> as soon as it gets a valid values, otherwise the <lamp_status> shall be UNINITIALIZED.
+* **[ReqID:002]** Th shall be possible to get <light_intensity> from CAN bus.
+* **[ReqID:003]** It shall be possible to get <light_intensity_status> from CAN bus.
+* **[ReqID:004]** It shall be possible to get <light_intensity_target> from CAN bus.
+* **[ReqID:005]** It shall be possible to get <light_intensity_tolerance> from CAN bus.
+* **[ReqID:006]** It shall be possible to set <light_status> to OK otherwise ERROR.
 
 
 ## WaterPump
