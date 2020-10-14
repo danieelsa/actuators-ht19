@@ -9,50 +9,65 @@
 # The specific requirements for the different devices
 
 ## Air fan
-* [ReqID:001] It should be possible to initialize the <fan> as soon as it gets a valid values, otherwise the <fan_status> shall be
+___________
+* [ReqID:001] It shall be possible to initialize the <fan> as soon as it gets a valid values, otherwise the <fan_status> shall be
             UNINITIALIZED.
-
-
+* [ReqID:002] It shall be possible to read The <temperature_target_min_val> and <temperature_target_max_val>,
+            and The <humidity_target_min_val> and <humidity_target_max_val> from CAN bus every <read_interval>.
+* [ReqID:003] It shall be possible to read the <temperature>, <humidity> and <dht_sensor_status> from CAN bus every <read_interval>.
+* [ReqID:004] It shall be possible to turn the <fan> ON/OFF
+* [ReqID:005] if <temperature>/<humidity> is more than <temperature_target_max_val>/<humidity_target_max_val> respectively
+                the <fan_state> shall be ON else the <fan_state> shall be OFF 
+* [ReqID:006] It shall be possible to send <fan_status> signal to the CAN bus every <write_interval>.
 
 ## Heater                                                                                                     
+___________
 
 When We need to prioritate, the temperature is the most important factor.
 
-* [ReqID:001] It should be possible to initialize the <heater> as soon as it gets a valid values, otherwise the <heater_status> shall be
+* [ReqID:001] It shall be possible to initialize the <heater> as soon as it gets a valid values, otherwise the <heater_status> shall be
             UNINITIALIZED.
-* [ReqID:002] It should be possible to read The <temperature_cal_min_val> and <temperature_cal_max_val>,
-            and The <humidity_cal_min_val> and <humidity_cal_max_val> from CAN bus every <Interval>.
-* [ReqID:003] If Should be possible to read the <temperature> and the <humidity> from CAN bus every <Interval>
-* [ReqID:004] It should be possible to turn the heater ON/OFF
+* [ReqID:002] It shall be possible to read The <temperature_cal_min_val> and <temperature_cal_max_val>,
+            and The <humidity_cal_min_val> and <humidity_cal_max_val> from CAN bus every <read_interval>.
+* [ReqID:003] It shall be possible to read the <temperature>, <humidity> and <dht_sensor_status> from CAN bus every <read_interval>.
+* [ReqID:004] It shall be possible to turn the <heater> ON/OFF
 * [ReqID:005] If <temperature>/<humidity> is less than <temperature_cal_min_val>/<humidity_cal_min_val> respectively
-                the <heater_state> Should be turned ON and the <heater_status> should be OK
+                the <heater_state> shall be turned ON and the <heater_status> should be OK
             else if <temperature>/<humidity> is more than <temperature_cal_max_val>/<humidity_cal_max_val> respectively
-                the <heater_state> Should be turned OFF and the <heater_status> should be OK
-            else the <heater_state> Should be turned OFF and the <heater_status> should be NOT_WORKING
+                the <heater_state> shall be turned OFF and the <heater_status> shall be OK
+            else the <heater_state> shall be turned OFF and the <heater_status> shall be NOT_WORKING
 
 
 ## Lamp
-* [ReqID:001] It should be possible to initialize the <lamp> as soon as it gets a valid values, otherwise the <lamp_status> shall be
+________
+
+* [ReqID:001] It shall be possible to initialize the <lamp> as soon as it gets a valid values, otherwise the <lamp_status> shall be
             UNINITIALIZED.
 
 
 ## WaterPump
-* [ReqID:001] It should be possible to initialize the <waterpump> as soon as it gets a valid values, otherwise the <waterpump_status> shall be
+_____________
+
+* [ReqID:001] It shall be possible to initialize the <waterpump> as soon as it gets a valid values, otherwise the <waterpump_status> shall be
             UNINITIALIZED.
 
 
 ## Watervalve
-* [ReqID:001] It should be possible to initialize the <watervalve> as soon as it gets a valid values, otherwise the <watervalve_status> shall be
+______________
+
+* [ReqID:001] It shall be possible to initialize the <watervalve> as soon as it gets a valid values, otherwise the <watervalve_status> shall be
             UNINITIALIZED.
 
 
 ## Window ventilator
-* [ReqID:001] It should be possible to initialize the <window> as soon as it gets a valid values, otherwise the <window_statis> shall be
+_____________________
+
+* [ReqID:001] It shall be possible to initialize the <window> as soon as it gets a valid values, otherwise the <window_statis> shall be
             UNINITIALIZED.
-* [ReqID:002] It should be possible to read The <temperature_target_min_val> and <temperature_target_max_val>,
+* [ReqID:002] It shall be possible to read The <temperature_target_min_val> and <temperature_target_max_val>,
             and The <humidity_target_min_val> and <humidity_target_max_val> from CAN bus every <read_interval>.
-* [ReqID:003] It Should be possible to read the <temperature>, <humidity> and <dht_sensor_status> from CAN bus every <read_interval>.
-* [ReqID:004] It should be possible to open and close the window
+* [ReqID:003] It shall be possible to read the <temperature>, <humidity> and <dht_sensor_status> from CAN bus every <read_interval>.
+* [ReqID:004] It shall be possible to open and close the <window>
 * [ReqID:005] if <temperature>/<humidity> is more than <temperature_target_max_val>/<humidity_target_max_val> respectively
-                the <window_state> Should be OPEN else the <window_state> Should be CLOSE 
+                the <window_state> shall be OPEN else the <window_state> shall be CLOSE 
 * [ReqID:006] It shall be possible to send <window_status> signal to the CAN bus every <write_interval>.
