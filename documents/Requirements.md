@@ -19,16 +19,16 @@ ___________
 * **[ReqID:004]** It shall be possible to turn the <fan> ON/OFF
 * **[ReqID:005]** If <temperature>/<humidity>/<soilmoisture_value> is more than <temperature_target_max_val>/<humidity_target_max_val>/<soilmoisture_target_max_val> respectively the <fan_state> shall be ON, otherwise the <fan_state> shall be OFF
 * **[ReqID:006]** It shall be possible to send <fan_status> signal to the CAN bus every <write_interval>.
-
+* **[ReqID:007]** It shall be possible to set <fan_status> to OK if everything is ok, otherwise the <fan_status> shall be ERROR.
 
 ## Heater                                                                                                     
 ___________
 
- _When We need to prioritate, the temperature is the most important factor._
+ _When We need to prioritate, the temperature is the most important factor, then comes the soilmoisture, and last is the humidity_
 
 * **[ReqID:001]** It shall be possible to initialize the <heater> as soon as it gets a valid values, otherwise the <heater_status> shall be UNINITIALIZED.
-* **[ReqID:002]** It shall be possible to read The <temperature_cal_min_val> and <temperature_cal_max_val>,
-            and The <humidity_cal_min_val> and <humidity_cal_max_val> from CAN bus every <read_interval>.
+* **[ReqID:002]** It shall be possible to read The <temperature_target_min_val> and <temperature_target_max_val>,
+            and The <humidity_target_min_val> and <humidity_target_max_val> from CAN bus every <read_interval>.
 * **[ReqID:003]** It shall be possible to read the <temperature>, <humidity> and <dht_sensor_status> from CAN bus every <read_interval>.
 * **[ReqID:004]** It shall be possible to turn the <heater> ON/OFF
 * **[ReqID:005]** If <temperature>/<humidity> is less than <temperature_target_min_val>/<humidity_target_min_val> respectively
@@ -37,17 +37,12 @@ ___________
                 the <heater_state> shall be turned OFF and the <heater_status> shall be OK
             else the <heater_state> shall be turned OFF and the <heater_status> shall be NOT_WORKING
 * **[ReqID:006]** It shall be possible to send <heater_status> signal to the CAN bus every <write_interval>.
-
+* **[ReqID:007]** It shall be possible to set <heater_status> to OK if everything is ok, otherwise the <heater_status> shall be ERROR.
 
 ## Lamp
 ________
 
 * **[ReqID:001]** It shall be possible to initialize the <lamp> as soon as it gets a valid values, otherwise the <lamp_status> shall be UNINITIALIZED.
-* **[ReqID:002]** Th shall be possible to get <light_intensity> from CAN bus.
-* **[ReqID:003]** It shall be possible to get <light_intensity_status> from CAN bus.
-* **[ReqID:004]** It shall be possible to get <light_intensity_target> from CAN bus.
-* **[ReqID:005]** It shall be possible to get <light_intensity_tolerance> from CAN bus.
-* **[ReqID:006]** It shall be possible to set <light_status> to OK otherwise ERROR.
 
 
 ## WaterPump
@@ -58,7 +53,8 @@ _____________
 * **[ReqID:003]** It shall be possible to read the <soilmoisture_value> and <soilmoisture_sensor_status> from CAN bus every <read_interval>.
 * **[ReqID:004]** It shall be possible to turn the <waterpump> ON/OFF
 * **[ReqID:005]** If <soilmoisture_value> is less than <soilmoisture_target_max_val> the <waterpump> shall be ON, otherwise the <waterpump> shall be OFF
-* **[ReqID:006]** It shall be possible to send <waterpump> signal to the CAN bus every <write_interval>.
+* **[ReqID:006]** It shall be possible to send <waterpump_status> signal to the CAN bus every <write_interval>.
+* **[ReqID:007]** It shall be possible to set <waterpump_status> to OK if everything is ok, otherwise the <waterpump_status> shall be ERROR.
 
 ## Watervalve
 ______________
@@ -69,6 +65,7 @@ ______________
 * **[ReqID:004]** It shall be possible open and close the <watervalve>.
 * **[ReqID:005]** If <liquid_level_value> is less than <liquid_level_target_min_val> the <watervalve_state> shall be OPEN, otherwise the <watervalve> shall be CLOSE
 * **[ReqID:006]** It shall be possible to send <watervalve_status> signal to the CAN bus every <write_interval>.
+* **[ReqID:007]** It shall be possible to set <watervalve_status> to OK if everything is ok, otherwise the <watervalve_status> shall be ERROR.
 
 ## Window ventilator
 _____________________
@@ -82,3 +79,4 @@ _____________________
 * **[ReqID:005]** If <temperature>/<humidity>/<soilmoisture_value> is more than <temperature_target_max_val>/<humidity_target_max_val>/<soilmoisture_target_max_val> respectively
                 the <window_state> shall be OPEN else the <window_state> shall be CLOSE 
 * **[ReqID:006]** It shall be possible to send <window_status> signal to the CAN bus every <write_interval>.
+* **[ReqID:007]** It shall be possible to set <window_status> to OK if everything is ok, otherwise the <window_status> shall be ERROR.
