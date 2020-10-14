@@ -61,7 +61,8 @@ ______________
 * [ReqID:002] It shall be possible to read The <liquid_level_target_min_val> and <liquid_level_target_max_val> from CAN bus every <read_interval>.
 * [ReqID:003] It shall be possible to read the <liquid_level_value> and <liquid_level_sensor_status> from CAN bus every <read_interval>.
 * [ReqID:004] It shall be possible open and close the <watervalve>.
-* [ReqID:005] If <liquid_level_value> is less than <liquid_level_target_min_val> the <watervalve> shall be OPEN, otherwise the <watervalve> shall be CLOSE
+* [ReqID:005] If <liquid_level_value> is less than <liquid_level_target_min_val> the <watervalve_state> shall be OPEN, otherwise the <watervalve> shall be CLOSE
+* [ReqID:006] It shall be possible to send <watervalve_status> signal to the CAN bus every <write_interval>.
 
 ## Window ventilator
 _____________________
