@@ -42,8 +42,14 @@ ___________
 ## Lamp
 ________
 
-* **[ReqID:001]** It shall be possible to initialize the <lamp> as soon as it gets a valid values, otherwise the <lamp_status> shall be UNINITIALIZED.
-
+* **[ReqID:001]** It shall be possible to initialize the <fan> as soon as it gets a valid values, otherwise the <fan_status> shall be
+            UNINITIALIZED.
+* **[ReqID:002]** It shall be possible to read The <temperature_target_min_val>, <temperature_target_max_val>,
+             The <humidity_target_min_val>, <humidity_target_max_val>, <soilmoisture_target_min_val>, and the <soilmoisture_target_max_val> from CAN bus every <read_interval>.
+* **[ReqID:003]** It shall be possible to read the <temperature>, <humidity>, <soilmoisture_value>, <soilmoisture_sensor_status> and <dht_sensor_status> from CAN bus every <read_interval>.
+* **[ReqID:004]** It shall be possible to turn the <fan> ON/OFF
+* **[ReqID:005]** If <temperature>/<humidity>/<soilmoisture_value> is more than <temperature_target_max_val>/<humidity_target_max_val>/<soilmoisture_target_max_val> respectively the <fan_state> shall be ON, otherwise the <fan_state> shall be OFF
+* **[ReqID:006]** It shall be possible to send <fan_status> signal to the CAN bus every <write_interval>.
 
 ## WaterPump
 _____________
