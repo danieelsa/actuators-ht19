@@ -14,7 +14,7 @@
 
 
 
-## Heater requirements                                                                                                      
+## Heater                                                                                                     
 
 When We need to prioritate, the temperature is the most important factor.
 
