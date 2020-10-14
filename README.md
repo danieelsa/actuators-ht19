@@ -1,10 +1,10 @@
 # Greenhouse: Actuators
 
-# Actuators implemented:
+## Actuators implemented:
 Water valve, Air fan, Lamp, Heater, Water pump, Window ventilator.
 
-# Developers:
+## Developers:
 Bassel Alnabhan, Daniel Sandblom, Lucas Olsson, Valantine Nji Manjoh. 
 
-# Supervisor:
+## Supervisor:
 Faroch Mehri.
