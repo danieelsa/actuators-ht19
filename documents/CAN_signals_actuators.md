@@ -1,9 +1,9 @@
 
 
-                                                                                ####Lamp####
- [Signal name]     [Signal type]   [Length of signal]   [value range]   [short description]        [calibration val?]   [overwrite signal?]   [setters]   [getters]   [how often sent/received]
-light_intensity |      uint8_t   |       7 bit        |     0-100     | the intensity of light   |        No          |         No          |    sens   |    act    |       read_interval     |     
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#### Lamp ####
+ Signal name | Signal type | Length of signal | value range | short description | Calibration val? | overwrite signal? | setters |getters | how often sent/received
+-------------|--------------|-----------------|-------------|-------------------|------------------|-------------------|------------------|------------------
+light_intensity | uint8_t | 7 bit | 0-100 | the intensity of light | No | No | sens | act | read_interval
  [Signal name]     [Signal type]   [Length of signal]   [value range]   [short description]   [calibration val?]   [overwrite signal?]   [setters]   [getters]   [how often sent/received]
   lamp_status   |    uint8_t     |       7 bit        |     ON-OFF    | status of lamp      |        No          |         Yes         |     act   |    hmi    |      write_interval     |     
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
