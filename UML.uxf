@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>657</x>
+      <y>234</y>
+      <w>234</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>Air Fan Driver
+--
+- void initialize()
++ configure()
++ get_temp(): Sensor
++ get_humidity(): Sensor
++ get_fan_status(): int
++ get_keypad(): HMI
+- set_fan__status(): int
+--
+Responsibility
+Controls the temp/humidity by turning 
+the fan on/off depending the ambient 
+temp/humidity from the sensors
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>657</x>
+      <y>666</y>
+      <w>234</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Window Ventilation Driver
+--
+- void initialize()
++ configure()
++ get_temp(): Sensor
++ get_humidity(): Sensor
++ get_window_vent_status(): int
+- set_window_vent_status(): int
+--
+Responsibility
+Controls the temp/humidity by
+opening/closing the window 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>387</x>
+      <y>234</y>
+      <w>216</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Heater Driver
+--
+- void initialize()
++ configure()
++ get_temp(): Sensor
++ get_soil_moisture(): Sensor
++ get_heater_status(): int
++ get_keypad(): HMI
+- set_heater__status(): int
+--
+Responsibility
+Controls the temp and soil moisture
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1098</x>
+      <y>918</y>
+      <w>252</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>Water Valve
+--
+- void initilize_water_valve()
+- void initialize_container_water_level()
++ get_container_water_level(): int
++ get_water_pump_status(): Water Pump
++ get_water_valve_status(): int
++ get_calibration_value(): HMI
++ set_container_water_level(): int
+- set_water_valve_status(): int
+--
+Responsibility
+Control the status of water valve
+depending on the container_water_level 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>675</x>
+      <y>918</y>
+      <w>207</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Water Pump Driver
+--
+- void initialize_pump()
++ configure()
++ get_soil_mositure(): Sensor
++ get_humidity(): Sensor
++ get_water_pump_status(): int
++ get_keypad(): HMI
+- set_water__pump__status(): int
+--
+Responsibilities
+Using keypad to control the pump 
+status depending on the input 
+humidity/soil moisture 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1089</x>
+      <y>468</y>
+      <w>207</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Lamp
+--
+- void initialize_lamp()
++ configure()
++ get_soil_mositure(): Sensor
++ get_humidity(): Sensor
++ get_water_pump_status(): int
++ get_keypad(): HMI
+- set_water__pump__status(): int
+--
+Responsibilities
+Using keypad to control the pump 
+status depending on the input 
+humidity/soil moisture 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>234</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Temperature Driver
+--
+- Airfan Driver
+- Heater Driver
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>279</x>
+      <y>171</y>
+      <w>531</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>570.0;70.0;570.0;10.0;70.0;10.0;70.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>171</y>
+      <w>27</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>486</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Humidity Driver
+--
+- Airfan Driver
+- Window Ventilation Driver
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>423</y>
+      <w>603</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>650.0;10.0;650.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>621</y>
+      <w>594</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>640.0;50.0;640.0;30.0;10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1089</x>
+      <y>243</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Light Intensity Driver
+--
+- Lamp Driver
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>846</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Soil Moisture Driver
+--
+- Window Ventilation Driver
+- Water Pump Driver
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1170</x>
+      <y>378</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>873</x>
+      <y>990</y>
+      <w>243</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>756</y>
+      <w>387</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>410.0;10.0;250.0;10.0;250.0;170.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>909</y>
+      <w>405</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>430.0;110.0;250.0;110.0;250.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>549</x>
+      <y>18</y>
+      <w>477</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>
+
+Greenhouse Pump Project
+Actuators</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
