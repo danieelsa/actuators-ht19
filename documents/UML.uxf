@@ -6,7 +6,7 @@
 + get_humidity(): Sensor
 + get_fan_status(): int
 + get_keypad(): HMI
-- set_fan__status(): int
+- set_fan_status(): int
 --
 Responsibility
 Controls the temp/humidity by turning 
@@ -112,7 +112,15 @@ Responsibilities
 --
 Responsibilities
 -- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1300</x><y>420</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>1100</y><w>270</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;250;10</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>840</y><w>430</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>410;10;250;10;250;170;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>1010</y><w>450</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>430;110;250;110;250;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>20</y><w>530</w><h>100</h></coordinates><panel_attributes>
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1300</x><y>420</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>1100</y><w>270</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;250;10</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>840</y><w>430</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>410;10;250;10;250;170;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>1010</y><w>450</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>430;110;250;110;250;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>10</y><w>530</w><h>100</h></coordinates><panel_attributes>
 
 Greenhouse Pump Project
-Actuators</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+Actuators</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>210</w><h>60</h></coordinates><panel_attributes>ambient_app
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>100</y><w>210</w><h>60</h></coordinates><panel_attributes>watering_app
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
