@@ -1,4 +1,4 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLGeneric</id><coordinates><x>260</x><y>370</y><w>260</w><h>190</h></coordinates><panel_attributes>Air Fan Driver
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLGeneric</id><coordinates><x>250</x><y>400</y><w>260</w><h>190</h></coordinates><panel_attributes>Air Fan Driver
 --
 ~ON = 1: uint8_t
 ~OFF = 0: uint8_t
@@ -6,23 +6,26 @@
 -initialize(): uint8_t
 + configure()
 + get_fan_status(): uint8_t
-- set_fan_status(): uint8_t
+- set_fan_state(): uint8_t
 --
 Controls the temp/humidity by turning 
 the fan on/off depending the ambient 
 temp/humidity from the sensors
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>810</x><y>310</y><w>260</w><h>130</h></coordinates><panel_attributes>Window Ventilation Driver
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>810</x><y>310</y><w>260</w><h>170</h></coordinates><panel_attributes>Window Ventilation Driver
 --
+~OPEN = 1: uint8_t
+~CLOSED = 0: uint8_t
+--------------------------------------------------------------
 -initialize(): uint8_t
 + configure()
 + get_window_vent_status(): int
-- set_window_vent_status(): int
+- set_window_vent_state(): int
 --
 Controls the temp/humidity by
 opening/closing the window 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>0</x><y>280</y><w>240</w><h>160</h></coordinates><panel_attributes>Heater Driver
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>20</x><y>230</y><w>240</w><h>160</h></coordinates><panel_attributes>Heater Driver
 --
 ~ON = 1: uint8_t
 ~OFF = 0: uint8_t
@@ -30,16 +33,19 @@ opening/closing the window
 -initialize(): uint8_t
 + configure()
 + get_heater_status(): uint8_t
-- set_heater_status(): uint8_t
+- set_heater_state(): uint8_t
 --
 Controls the temp and soil moisture
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1260</x><y>480</y><w>280</w><h>160</h></coordinates><panel_attributes>Water Valve
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1260</x><y>460</y><w>230</w><h>210</h></coordinates><panel_attributes>Water Valve
 --
+~OPEN = 1: uint8_t
+~CLOSED = 0: uint8_t
+--------------------------------------------------------------
 -initialize(): uint8_t
 + get_water_valve_status(): int
-- set_water_valve_status(): int
+- set_water_valve_state(): int
 + set_container_water_level(): int
 + get_container_water_level(): int
 --
@@ -47,60 +53,62 @@ Responsibility
 Control the status of water valve
 depending on the container_water_level 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>960</x><y>540</y><w>230</w><h>150</h></coordinates><panel_attributes>Water Pump Driver
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>990</x><y>490</y><w>230</w><h>190</h></coordinates><panel_attributes>Water Pump Driver
 --
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
 -initialize(): uint8_t
 + configure()
 + get_water_pump_status(): int
-- set_water_pump_status(): int
+- set_water_pump_state(): int
 --
 Using keypad to control the pump 
 status depending on the input 
 humidity/soil moisture 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>550</x><y>340</y><w>230</w><h>140</h></coordinates><panel_attributes>Lamp
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>550</x><y>400</y><w>230</w><h>190</h></coordinates><panel_attributes>Lamp
 --
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
 -initialize(): uint8_t
 + configure()
 + get_lamp_status(): uint8_t
-- set_lamp_status(): uint8_t
+- set_lamp_state(): uint8_t
 --
 Using keypad to control the pump 
 status depending on the input 
 humidity/soil moisture 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>190</y><w>210</w><h>110</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;90;10;10;190;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>240</y><w>130</w><h>120</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;100;110;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>0</y><w>330</w><h>80</h></coordinates><panel_attributes>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>190</y><w>260</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;240;10</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>240</y><w>60</w><h>180</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>40;160;40;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>0</y><w>330</w><h>80</h></coordinates><panel_attributes>
 
 Greenhouse Pump Project
-Actuators</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>90</y><w>270</w><h>230</h></coordinates><panel_attributes>ambient_app
+Actuators</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>90</y><w>270</w><h>270</h></coordinates><panel_attributes>ambient_app
 --
 ~OK = 1: uint8_t
 ~ERROR = 0: uint8_t
 ~UNINITIALIZED = 2: uint8_t
-~ struct target_values(min,max): uint8_t,uint8_t
 ------------------------------------------------------------------
 + get_soil_mositure_target_values(): uint8_t
 + get_temp_target_values(): float
 + get_humidity_target_values(): uint8_t
 + get_dht_sensor_status(): uint8_t
-+ get_keypad(): uint8_t
 + get_temp_value(): float
 + get_soil_moisture_value(): uint8_t
 + get _humidity_value(): uint8_t
 --
 This app is responsible to control 
 the ambient system 
-(Heater, Lamp, Window, Fan)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1110</x><y>100</y><w>340</w><h>240</h></coordinates><panel_attributes>watering_app
+(Heater, Lamp, Window, Fan)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1110</x><y>100</y><w>340</w><h>180</h></coordinates><panel_attributes>watering_app
 --
 ~OK = 1: uint8_t
 ~ERROR = 0: uint8_t
 ~UNINITIALIZED = 2: uint8_t
-~ struct target_values(min,max): uint8_t,uint8_t
 ------------------------------------------------------------------
 + get_soil_mositure_target_values(): target_values
 + get_soil_moisture_value(): uint8_t
 + get_container_water_level_target_values(): target_values
-+ get_keypad(): uint8_t
 --
 This app is responsible to control 
-the watering system</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>310</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>200</y><w>370</w><h>130</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>350;110;350;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>330</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1130</x><y>330</y><w>30</w><h>230</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;210;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>60</y><w>100</w><h>30</h></coordinates><panel_attributes>CAN_bus system</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>80</y><w>380</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;360;40;360;10</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>80</y><w>180</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>160;40;10;40;10;10</additional_attributes></element></diagram>
+the watering system</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>350</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>200</y><w>300</w><h>130</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>280;110;280;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1370</x><y>270</y><w>30</w><h>210</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;190;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1160</x><y>270</y><w>30</w><h>240</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;220;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>60</y><w>100</w><h>30</h></coordinates><panel_attributes>CAN_bus system</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>80</y><w>310</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;290;40;290;10</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>80</y><w>180</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>160;40;10;40;10;10</additional_attributes></element></diagram>
