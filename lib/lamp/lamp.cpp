@@ -22,7 +22,7 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
 
     uint8_t status = LAMP_ERROR;
     // placeholder
-    if (pin != 0)
+    if (ACCEPTED_PIN(pin) == true)
     {
         // if we use TEENSY. Assign our spy functions to the function pointers.
         // If not, use our "fake" implementation of digitalWrite and pinMode.
@@ -62,4 +62,20 @@ uint8_t lamp_end(void)
 {
     pin_mode = bsp_pin_mode;
     digital_write = bsp_digital_write;
+}
+
+bool check_valid_pin(uint8_t pin)
+{
+    uint8_t pwm_pins[] = {1, 2, 3};
+    uint8_t temp = 0;
+
+    for (int i = 0; i < 1; i++)
+    {
+        temp = pwm_pins[i];
+        if (pin == temp)
+        {
+            return true;
+        }
+    }
+    return false;
 }

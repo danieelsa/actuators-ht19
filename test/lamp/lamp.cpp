@@ -64,7 +64,7 @@ void tearDown()
 
 void test_lamp_begin_ok(void)
 {
-    TEST_ASSERT_EQUAL_UINT8(1U, lamp_begin(interface, 1));
+    TEST_ASSERT_EQUAL_UINT8(1U, lamp_begin(interface, 10));
 }
 
 #ifdef TEENSY

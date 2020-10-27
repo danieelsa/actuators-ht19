@@ -8,6 +8,8 @@
 #define LAMP_ERROR (0U)
 #define LAMP_OK (1U)
 
+#define ACCEPTED_PIN(arg) (((arg >= 2 && arg <= 10) || (arg >= 20 && arg <= 23) || (arg >= 29 && arg <= 30) || (arg >= 35 && arg <= 38) || (arg == 14)) ? 1 : 0)
+
 typedef struct
 {
     void (*digital_write)(uint8_t, uint8_t);
