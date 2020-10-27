@@ -5,6 +5,8 @@
 
 static void (*digital_write)(uint8_t, uint8_t);
 static void (*pin_mode)(uint8_t, uint8_t);
+uint8_t lamp_pin = 0;
+uint8_t lamp_state = 0;
 
 /**
  * @brief This function is used for initialization of module
@@ -31,20 +33,51 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
             digital_write = interface->digital_write;
             pin_mode = interface->pin_mode;
         }
+        lamp_pin = pin;
+        pin_mode(lamp_pin, OUTPUT);
         digital_write(pin, LOW);
         status = LAMP_OK;
     }
     return status;
 }
 
+/**
+ * @brief This function is used to set the state of the lamp ON/OFF
+ * 
+ * @param state The state to switch the lamp to
+ * @return 1 if switch was successfull
+ * @return 0 if switch was not successfull
+ */
 uint8_t set_lamp_state(uint8_t state)
 {
+    uint8_t status = LAMP_ERROR;
     if (state == ON)
     {
+        if (state != lamp_state)
+        {
+            digital_write(lamp_pin, state);
+            lamp_state = ON;
+            status = LAMP_OK;
+        }
+        else
+        {
+            status = LAMP_ERROR;
+        }
     }
     else
     {
+        if (state != lamp_state)
+        {
+            digital_write(lamp_pin, state);
+            lamp_state = OFF;
+            status = LAMP_OK;
+        }
+        else
+        {
+            status = LAMP_ERROR;
+        }
     }
+    return status;
 }
 
 uint8_t get_lamp_status(void)

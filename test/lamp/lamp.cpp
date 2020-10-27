@@ -67,6 +67,18 @@ void test_lamp_begin_ok(void)
     TEST_ASSERT_EQUAL_UINT8(1U, lamp_begin(interface, 10));
 }
 
+void test_set_lamp_state_on(void)
+{
+    TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(1));
+    TEST_ASSERT_EQUAL_UINT8(0U, set_lamp_state(1));
+}
+
+void test_set_lamp_state_off(void)
+{
+    TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(0));
+    TEST_ASSERT_EQUAL_UINT8(0U, set_lamp_state(0));
+}
+
 #ifdef TEENSY
 void loop()
 {
@@ -91,6 +103,8 @@ int main(void)
 #endif
     UNITY_BEGIN();
     RUN_TEST(test_lamp_begin_ok);
+    RUN_TEST(test_set_lamp_state_on);
+    RUN_TEST(test_set_lamp_state_off);
 
 #ifdef TEENSY
     UNITY_END();
