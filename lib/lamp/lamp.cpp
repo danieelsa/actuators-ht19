@@ -5,6 +5,7 @@
 
 static void (*digital_write)(uint8_t, uint8_t);
 static void (*pin_mode)(uint8_t, uint8_t);
+
 uint8_t lamp_pin = 0;
 uint8_t lamp_state = 0;
 
@@ -78,10 +79,13 @@ void configure(void)
 }
 
 /**
- * @brief This function is a helper function that resets the function pointers to the "fake" Arduino functions
+ * @brief This function is a helper function that sets the function pointers to the real or fake bsp funktions
+ * depending on if you have included teensy or not.
  */
 uint8_t lamp_end(void)
 {
+    lamp_pin = 0;
+    lamp_state = 0;
     pin_mode = bsp_pin_mode;
     digital_write = bsp_digital_write;
 }
