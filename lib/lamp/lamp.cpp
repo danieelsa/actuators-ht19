@@ -51,30 +51,19 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
 uint8_t set_lamp_state(uint8_t state)
 {
     uint8_t status = LAMP_ERROR;
-    if (state == ON)
+
+    if (lamp_state != state)
     {
-        if (state != lamp_state)
+        status = LAMP_OK;
+        if (state == ON)
         {
             digital_write(lamp_pin, state);
             lamp_state = ON;
-            status = LAMP_OK;
         }
         else
-        {
-            status = LAMP_ERROR;
-        }
-    }
-    else
-    {
-        if (state != lamp_state)
         {
             digital_write(lamp_pin, state);
             lamp_state = OFF;
-            status = LAMP_OK;
-        }
-        else
-        {
-            status = LAMP_ERROR;
         }
     }
     return status;
