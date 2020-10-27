@@ -1,7 +1,7 @@
 #ifndef LAMP_H
 #define LAMP_H
 
-#include <Arduino.h>
+#include <stdint.h>
 
 #define ON (1U)
 #define OFF (0U)

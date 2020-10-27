@@ -1,4 +1,5 @@
 #include <lamp.h>
+#include <bsp.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -59,7 +60,6 @@ void configure(void)
  */
 uint8_t lamp_end(void)
 {
-
-    pin_mode = pinMode;
-    digital_write = digitalWrite;
+    pin_mode = bsp_pin_mode;
+    digital_write = bsp_digital_write;
 }

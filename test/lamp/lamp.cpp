@@ -1,5 +1,6 @@
 #include <unity.h>
 #include <lamp.h>
+#include <bsp.h>
 
 static int16_t state;
 static interface_t *interface = NULL; // A pointer to the interface. If NULL, the normal digitalWrite and pinMode will be used
@@ -10,17 +11,18 @@ static void reset_variables(void)
 }
 
 #ifdef TEENSY
+
 void digitalWrite_spy(uint8_t pin, uint8_t val)
 {
     if (val == HIGH)
     {
         state = ON;
-        digitalWrite(pin, val);
+        bsp_digital_write(pin, val);
     }
     else
     {
         state = OFF;
-        digitalWrite(pin, val);
+        bsp_digital_write(pin, val);
     }
 }
 
@@ -28,12 +30,13 @@ void pinMode_spy(uint8_t pin, uint8_t mode)
 {
     if (mode == OUTPUT)
     {
-        pinMode(pin, mode); // call real pinMode
+        bsp_pin_mode(pin, mode); // call real pinMode
     }
 }
 
 #else
-void digitalWrite(uint8_t pin, uint8_t val)
+
+void bsp_digital_write(uint8_t pin, uint8_t val)
 {
     if (val == HIGH)
     {
@@ -45,7 +48,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
     }
 }
 
-void pinMode(uint8_t pin, uint8_t mode)
+void bsp_pin_mode(uint8_t pin, uint8_t mode)
 {
 }
 
@@ -72,8 +75,8 @@ void loop()
 void setup()
 {
     /**
-     * @brief On Teensy we provide our implementation for delay, digitalWrite and pinMode functions
-     *        and we assign these functions to the function pointers of the interface
+     * @brief If Teensy used, provide our implementation for digitalWrite and pinMode functions
+     *        and assign these functions to the function pointers of the interface
      */
     interface_t temp = {};
     temp.digital_write = digitalWrite_spy;
