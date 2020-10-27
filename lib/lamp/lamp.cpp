@@ -63,19 +63,3 @@ uint8_t lamp_end(void)
     pin_mode = bsp_pin_mode;
     digital_write = bsp_digital_write;
 }
-
-bool check_valid_pin(uint8_t pin)
-{
-    uint8_t pwm_pins[] = {1, 2, 3};
-    uint8_t temp = 0;
-
-    for (int i = 0; i < 1; i++)
-    {
-        temp = pwm_pins[i];
-        if (pin == temp)
-        {
-            return true;
-        }
-    }
-    return false;
-}
