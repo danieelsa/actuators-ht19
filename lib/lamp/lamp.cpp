@@ -44,7 +44,7 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
 }
 
 /**
- * @brief This function is used to set the state of the lamp ON/OFF
+ * @brief This function is used to switch the state of the lamp ON/OFF
  * 
  * @param state The state to switch the lamp to
  * @return 1 if switch was successfull
@@ -69,6 +69,14 @@ uint8_t set_lamp_state(uint8_t state)
         }
     }
     return status;
+}
+
+/**
+ * @brief This function is a helper function that returns the state of the lamp.
+ */
+uint8_t get_lamp_state(void)
+{
+    return lamp_state;
 }
 
 uint8_t get_lamp_status(void)

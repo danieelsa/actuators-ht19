@@ -24,6 +24,8 @@ void configure(void);
 
 uint8_t get_lamp_status(void);
 
+uint8_t get_lamp_state(void);
+
 uint8_t set_lamp_state(uint8_t state);
 
 #endif /* LAMP_H */
