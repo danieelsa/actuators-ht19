@@ -26,7 +26,7 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
     lamp_end();
 
     uint8_t status = LAMP_ERROR;
-    // placeholder
+
     if (ACCEPTED_PIN(pin) == true)
     {
         // if we use TEENSY. Assign our spy functions to the function pointers.
@@ -70,13 +70,16 @@ uint8_t set_lamp_state(uint8_t val)
 }
 
 /**
- * @brief This function is a helper function that returns the val of the lamp.
+ * @brief This function is a helper function that returns the state of the lamp.
  */
 uint8_t get_lamp_state(void)
 {
     return lamp_state;
 }
 
+/**
+ * @brief This function is a helper function that returns the PWM value of the lamp.
+ */
 uint8_t get_lamp_value(void)
 {
     return lamp_value;
