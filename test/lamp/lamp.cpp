@@ -70,12 +70,12 @@ void test_lamp_begin_ok(void)
 void test_set_lamp_state_on(void)
 {
     TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(1));
-    TEST_ASSERT_EQUAL_UINT8(0U, set_lamp_state(1));
+    TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(56));
+    TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(255));
 }
 
 void test_set_lamp_state_off(void)
 {
-    TEST_ASSERT_EQUAL_UINT8(1U, set_lamp_state(0));
     TEST_ASSERT_EQUAL_UINT8(0U, set_lamp_state(0));
 }
 

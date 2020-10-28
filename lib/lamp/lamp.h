@@ -7,6 +7,8 @@
 #define OFF (0U)
 #define LAMP_ERROR (0U)
 #define LAMP_OK (1U)
+#define PWM_MAX_VAL (255U)
+#define PWM_OFF (0U)
 
 #define ACCEPTED_PIN(arg) (((arg >= 2 && arg <= 10) || (arg >= 20 && arg <= 23) || (arg >= 29 && arg <= 30) || (arg >= 35 && arg <= 38) || (arg == 14)) ? 1 : 0)
 
@@ -25,6 +27,8 @@ void configure(void);
 uint8_t get_lamp_status(void);
 
 uint8_t get_lamp_state(void);
+
+uint8_t get_lamp_value(void);
 
 uint8_t set_lamp_state(uint8_t state);
 

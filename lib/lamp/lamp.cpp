@@ -8,6 +8,7 @@ static void (*pin_mode)(uint8_t, uint8_t);
 
 static uint8_t lamp_pin = 0;
 static uint8_t lamp_state = 0;
+static uint8_t lamp_value = 0;
 
 /**
  * @brief This function is used for initialization of module
@@ -45,38 +46,40 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
 
 /**
  * @brief This function is used to switch the state of the lamp ON/OFF
+ * and also write a PWM value to the lamp
  * 
- * @param state The state to switch the lamp to
- * @return 1 if switch was successfull
- * @return 0 if switch was not successfull
+ * @param val The PWM val we write to the lamp. 0 = OFF, 1 - 255 = ON.
+ * @return 1 if state of lamp is ON
+ * @return 0 if state of lamp is OFF
  */
-uint8_t set_lamp_state(uint8_t state)
+uint8_t set_lamp_state(uint8_t val)
 {
-    uint8_t status = LAMP_ERROR;
+    lamp_value = val;
 
-    if (lamp_state != state)
+    if (val > PWM_OFF && val <= PWM_MAX_VAL)
     {
-        status = LAMP_OK;
-        if (state == ON)
-        {
-            analog_write(lamp_pin, state);
-            lamp_state = ON;
-        }
-        else
-        {
-            analog_write(lamp_pin, state);
-            lamp_state = OFF;
-        }
+        analog_write(lamp_pin, val);
+        lamp_state = ON;
     }
-    return status;
+    else if (val == PWM_OFF)
+    {
+        analog_write(lamp_pin, val);
+        lamp_state = OFF;
+    }
+    return lamp_state;
 }
 
 /**
- * @brief This function is a helper function that returns the state of the lamp.
+ * @brief This function is a helper function that returns the val of the lamp.
  */
 uint8_t get_lamp_state(void)
 {
     return lamp_state;
+}
+
+uint8_t get_lamp_value(void)
+{
+    return lamp_value;
 }
 
 uint8_t get_lamp_status(void)
@@ -95,6 +98,7 @@ uint8_t lamp_end(void)
 {
     lamp_pin = 0;
     lamp_state = 0;
+    lamp_value = 0;
     pin_mode = bsp_pin_mode;
     analog_write = bsp_analog_write;
 }
