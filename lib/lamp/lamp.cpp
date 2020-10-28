@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-static void (*digital_write)(uint8_t, uint8_t);
+static void (*analog_write)(uint8_t, uint8_t);
 static void (*pin_mode)(uint8_t, uint8_t);
 
 static uint8_t lamp_pin = 0;
@@ -32,12 +32,12 @@ uint8_t lamp_begin(interface_t *interface, uint8_t pin)
         // If not, use our "fake" implementation of digitalWrite and pinMode.
         if (interface != NULL)
         {
-            digital_write = interface->digital_write;
+            analog_write = interface->analog_write;
             pin_mode = interface->pin_mode;
         }
         lamp_pin = pin;
         pin_mode(lamp_pin, OUTPUT);
-        digital_write(pin, LOW);
+        analog_write(pin, LOW);
         status = LAMP_OK;
     }
     return status;
@@ -59,12 +59,12 @@ uint8_t set_lamp_state(uint8_t state)
         status = LAMP_OK;
         if (state == ON)
         {
-            digital_write(lamp_pin, state);
+            analog_write(lamp_pin, state);
             lamp_state = ON;
         }
         else
         {
-            digital_write(lamp_pin, state);
+            analog_write(lamp_pin, state);
             lamp_state = OFF;
         }
     }
@@ -96,5 +96,5 @@ uint8_t lamp_end(void)
     lamp_pin = 0;
     lamp_state = 0;
     pin_mode = bsp_pin_mode;
-    digital_write = bsp_digital_write;
+    analog_write = bsp_analog_write;
 }

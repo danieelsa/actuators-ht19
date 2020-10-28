@@ -12,7 +12,7 @@
 
 typedef struct
 {
-    void (*digital_write)(uint8_t, uint8_t);
+    void (*analog_write)(uint8_t, uint8_t);
     void (*pin_mode)(uint8_t, uint8_t);
 } interface_t;
 

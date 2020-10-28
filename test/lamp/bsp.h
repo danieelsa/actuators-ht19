@@ -9,6 +9,6 @@
 #include <stdint.h>
 
 void bsp_pin_mode(uint8_t pin, uint8_t mode);
-void bsp_digital_write(uint8_t pin, uint8_t val);
+void bsp_analog_write(uint8_t pin, uint8_t val);
 
 #endif /* BSP_H */

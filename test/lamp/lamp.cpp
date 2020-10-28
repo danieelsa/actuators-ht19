@@ -12,17 +12,17 @@ static void reset_variables(void)
 
 #ifdef TEENSY
 
-void digitalWrite_spy(uint8_t pin, uint8_t val)
+void analogWrite_spy(uint8_t pin, uint8_t val)
 {
     if (val == HIGH)
     {
         state = ON;
-        bsp_digital_write(pin, val);
+        bsp_analog_write(pin, val);
     }
     else
     {
         state = OFF;
-        bsp_digital_write(pin, val);
+        bsp_analog_write(pin, val);
     }
 }
 
@@ -36,7 +36,7 @@ void pinMode_spy(uint8_t pin, uint8_t mode)
 
 #else
 
-void bsp_digital_write(uint8_t pin, uint8_t val)
+void bsp_analog_write(uint8_t pin, uint8_t val)
 {
     if (val == HIGH)
     {
@@ -91,7 +91,7 @@ void setup()
      *        and assign these functions to the function pointers of the interface
      */
     interface_t temp = {};
-    temp.digital_write = digitalWrite_spy;
+    temp.analog_write = analogWrite_spy;
     temp.pin_mode = pinMode_spy;
     interface = &temp;
 
