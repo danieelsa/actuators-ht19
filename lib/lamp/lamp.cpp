@@ -6,16 +6,17 @@
 static void (*digital_write)(uint8_t, uint8_t);
 static void (*pin_mode)(uint8_t, uint8_t);
 
-uint8_t lamp_pin = 0;
-uint8_t lamp_state = 0;
+static uint8_t lamp_pin = 0;
+static uint8_t lamp_state = 0;
 
 /**
  * @brief This function is used for initialization of module
  * 
  * @param interface A pointer to the interface that holds the function pointers
- * used for faking digitalWrite and pinMode if TEENSY not included
+ * used for fake digitalWrite and pinMode if TEENSY not included.
+ * If TEENSY included, assign them to the spy version of the functions.
  * @param pin The pin number we write to.
- * @return 1 if the initialization was successfull
+ * @return 1 if the initialization was successfull.
  * @return 0 if the initialization was not successfull.
  */
 uint8_t lamp_begin(interface_t *interface, uint8_t pin)
